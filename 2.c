@@ -21,7 +21,7 @@ enum divise
 	gsm,
 	cam
 };
-int proverka(char* y) // ïðîâåðêà äëÿ åíàì äèâàéñ
+int proverka(char* y) // Ã¯Ã°Ã®Ã¢Ã¥Ã°ÃªÃ  Ã¤Ã«Ã¿ Ã¥Ã­Ã Ã¬ Ã¤Ã¨Ã¢Ã Ã©Ã±
 {
 	//printf("1 %s 1\n ", y); 
 	char* com[6] =
@@ -33,7 +33,7 @@ int proverka(char* y) // ïðîâåðêà äëÿ åíàì äèâàéñ
 	}
 	return -1;
 }
-int f_proverka(const char* y) { //ïðîâåðêà äëÿ êîìàíä 
+int f_proverka(const char* y) { //Ã¯Ã°Ã®Ã¢Ã¥Ã°ÃªÃ  Ã¤Ã«Ã¿ ÃªÃ®Ã¬Ã Ã­Ã¤ 
 	const char *com[6] =
 	{
 		"insert", "select", "delete", "update", "uniq", "exit"
@@ -170,14 +170,14 @@ int analiz(int flag, int l,int q){
 
 typedef struct snode
 {
-char *car_vendor; 		 // Ìàðêà à/ì
-char *car_model; 		// Ìîäåëü à/ì
-int car_year; 			   // Ãîä ïðîèçâîäñòâà
-char *car_id ; 			  // Íîìåðíîé çíàê à/ì
+char *car_vendor; 		 // ÃŒÃ Ã°ÃªÃ  Ã /Ã¬
+char *car_model; 		// ÃŒÃ®Ã¤Ã¥Ã«Ã¼ Ã /Ã¬
+int car_year; 			   // ÃƒÃ®Ã¤ Ã¯Ã°Ã®Ã¨Ã§Ã¢Ã®Ã¤Ã±Ã²Ã¢Ã 
+char *car_id ; 			  // ÃÃ®Ã¬Ã¥Ã°Ã­Ã®Ã© Ã§Ã­Ã Ãª Ã /Ã¬
 char *key;
-int carrying; 	// Ãðóçîïîäúåìíîñòü (êã)
-int axles;     // ïåðåäíåïðèâîäíàÿ è çàäíÿïðèâîäíàÿ 6 íà 4 - 4 âåäóùèõ 
-  struct snode* ptr; // óêàçàòåëü íà ñëåäóþùèé ýëåìåíò
+int carrying; 	// ÃƒÃ°Ã³Ã§Ã®Ã¯Ã®Ã¤ÃºÃ¥Ã¬Ã­Ã®Ã±Ã²Ã¼ (ÃªÃ£)
+int axles;     // Ã¯Ã¥Ã°Ã¥Ã¤Ã­Ã¥Ã¯Ã°Ã¨Ã¢Ã®Ã¤Ã­Ã Ã¿ Ã¨ Ã§Ã Ã¤Ã­Ã¿Ã¯Ã°Ã¨Ã¢Ã®Ã¤Ã­Ã Ã¿ 6 Ã­Ã  4 - 4 Ã¢Ã¥Ã¤Ã³Ã¹Ã¨Ãµ 
+  struct snode* ptr; // Ã³ÃªÃ Ã§Ã Ã²Ã¥Ã«Ã¼ Ã­Ã  Ã±Ã«Ã¥Ã¤Ã³Ã¾Ã¹Ã¨Ã© Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²
 }tnode;  
 int push_back(char* vendor, char* model, int year, char* id, char* devise, int carry, int ax, tnode** node) {
 	//calloc_os++;
@@ -193,7 +193,7 @@ int push_back(char* vendor, char* model, int year, char* id, char* devise, int c
 		(*node)->car_id = id;
 		(*node)->carrying = carry;
 		(*node)->axles = ax;
-	} //èñïîëüçîâàíèå  óêàçàòåëÿ íà íåïîëíûé òèï êëàññà struct list íå äîïóñêàåòñÿ
+	} //Ã¨Ã±Ã¯Ã®Ã«Ã¼Ã§Ã®Ã¢Ã Ã­Ã¨Ã¥  Ã³ÃªÃ Ã§Ã Ã²Ã¥Ã«Ã¿ Ã­Ã  Ã­Ã¥Ã¯Ã®Ã«Ã­Ã»Ã© Ã²Ã¨Ã¯ ÃªÃ«Ã Ã±Ã±Ã  struct list Ã­Ã¥ Ã¤Ã®Ã¯Ã³Ã±ÃªÃ Ã¥Ã²Ã±Ã¿
 	else {
 		temp = *node;
 		while (temp->ptr != NULL) temp = temp->ptr;
@@ -328,10 +328,10 @@ void search(tnode* lst, int axles, int carrying, int car_year, int* for_yy2, int
 		if (select == 1) {
 			l++;
 			matritsa_dev = (int*)malloc(l * sizeof(int)); malloc_os++; free_os++;
-			for (int s = 1; s < l; s++) // öèêë ïî ñòðîêàì
+			for (int s = 1; s < l; s++) // Ã¶Ã¨ÃªÃ« Ã¯Ã® Ã±Ã²Ã°Ã®ÃªÃ Ã¬
 			{
 				matritsa_dev[s] = (int*)malloc(6 * sizeof(int)); malloc_os++; free_os++;
-				for (int j = 0; j < 6; j++)  // öèêë ïî ñòîëáöàì
+				for (int j = 0; j < 6; j++)  // Ã¶Ã¨ÃªÃ« Ã¯Ã® Ã±Ã²Ã®Ã«Ã¡Ã¶Ã Ã¬
 				{
 					matritsa_dev[s][j] = 0;
 				}
@@ -778,7 +778,7 @@ int main() {
 				  //  for (int i = 0; i < 22; i++) printf("%c ", name_of_func[i]);
 				  int flag = insert_proverka(name_of_func); //printf("%d\n", flag);
 				  switch (flag) {
-				  case 1: //ìàðêà
+				  case 1: //Ã¬Ã Ã°ÃªÃ 
 				  {
 					  if (mas_proverka[0] == 0) {
 						  char name_car_vendor[15] = { 0 }; fscanf(in, "%s", name_car_vendor);
@@ -798,7 +798,7 @@ int main() {
 						  return 500;
 					  } 
 				  }break;
-				  case 2:  //ìîäåëü
+				  case 2:  //Ã¬Ã®Ã¤Ã¥Ã«Ã¼
 				  {
 					  if (mas_proverka[1] == 0) {
 						  char name_model[15] = { 0 };
@@ -817,7 +817,7 @@ int main() {
 						  return 500;
 					  }  
 				  }break;
-				  case 3: //ãîä
+				  case 3: //Ã£Ã®Ã¤
 				  {
 					  if (mas_proverka[2] == 0) {
 						  fscanf(in, "%d", &car_year);
@@ -835,7 +835,7 @@ int main() {
 					  }
 					  
 				  }break;
-				  case 4: //íìîåðíîé çíàê
+				  case 4: //Ã­Ã¬Ã®Ã¥Ã°Ã­Ã®Ã© Ã§Ã­Ã Ãª
 				  {
 					  if (mas_proverka[3] == 0) {
 						  char name_id[15] = { 0 }; fscanf(in, "%s", name_id);
@@ -853,7 +853,7 @@ int main() {
 						  return 500;
 					  }
 				  }break;
-				  case 5: //äèâàéñû
+				  case 5: //Ã¤Ã¨Ã¢Ã Ã©Ã±Ã»
 				  {
 					  if (mas_proverka[4] == 0) {
 						  int  k = -1; int j = 0, jj = 0; char devise_st[40] = { 0 }; char dev[12] = { 0 };
@@ -971,7 +971,7 @@ int main() {
 			  prev = fgetc(in);// printf("%d\n", prev);
 			 int we = 0;
 			 int w = 1;
-			 if (prev != '\n') //ÂÂÎÄ ÄÎÏÎÂ
+			 if (prev != '\n') //Ã‚Ã‚ÃŽÃ„ Ã„ÃŽÃÃŽÃ‚
 			 {
 				 cover = 1;
 				 while (w != -1) {
@@ -1882,7 +1882,7 @@ int main() {
 					  flag = proverka_yes(name_of_func);
 				  }
 				  switch (flag) {
-				  case 1: //ìàðêà
+				  case 1: //Ã¬Ã Ã°ÃªÃ 
 				  {
 					  if (mas_proverka[0] == 0) {
 						  if (prev == '=') {
@@ -1909,7 +1909,7 @@ int main() {
 						  return 500;
 					  }
 				  }break;
-				  case 2:  //ìîäåëü
+				  case 2:  //Ã¬Ã®Ã¤Ã¥Ã«Ã¼
 				  {
 					  if (mas_proverka[1] == 0) {
 						 
@@ -1942,7 +1942,7 @@ int main() {
 
 
 				  }break;
-				  case 3: //ãîä
+				  case 3: //Ã£Ã®Ã¤
 				  {
 					  if (mas_proverka[2] == 0) {
 						
@@ -1962,7 +1962,7 @@ int main() {
 					  }
 
 				  }break;
-				  case 4: //íìîåðíîé çíàê
+				  case 4: //Ã­Ã¬Ã®Ã¥Ã°Ã­Ã®Ã© Ã§Ã­Ã Ãª
 				  {
 
 
@@ -1998,7 +1998,7 @@ int main() {
 						  return 500;
 					  }
 				  }break;
-				  case 5: //äèâàéñû
+				  case 5: //Ã¤Ã¨Ã¢Ã Ã©Ã±Ã»
 				  {
 					  if (mas_proverka[4] == 0) {
 						  chto[4] = 1;
@@ -2092,7 +2092,7 @@ int main() {
 			 // printf("%d\n", prev);
 			  prev = fgetc(in);
 			 
-			  if (prev == ' ') //ÂÂÎÄ ÄÎÏÎÂ
+			  if (prev == ' ') //Ã‚Ã‚ÃŽÃ„ Ã„ÃŽÃÃŽÃ‚
 			  {
 				  //printf("%d\n", axles);
 				  int we = 0;
@@ -2595,7 +2595,7 @@ int main() {
 					 int flag = proverka_yes(name_of_func);
 					 chto[flag - 1] = 1;
 				  switch (flag) {
-				  case 1: //ìàðêà
+				  case 1: //Ã¬Ã Ã°ÃªÃ 
 				  {
 					  if (mas_proverka[0] == 0) {
 							
@@ -2606,7 +2606,7 @@ int main() {
 						  return 500;
 					  }
 				  }break;
-				  case 2:  //ìîäåëü
+				  case 2:  //Ã¬Ã®Ã¤Ã¥Ã«Ã¼
 				  {
 					  if (mas_proverka[1] == 0) {
 							 
@@ -2619,7 +2619,7 @@ int main() {
 
 
 				  }break;
-				  case 3: //ãîä
+				  case 3: //Ã£Ã®Ã¤
 				  {
 					  if (mas_proverka[2] == 0) {
                          
@@ -2631,7 +2631,7 @@ int main() {
 					  }
 
 				  }break;
-				  case 4: //íìîåðíîé çíàê
+				  case 4: //Ã­Ã¬Ã®Ã¥Ã°Ã­Ã®Ã© Ã§Ã­Ã Ãª
 				  {
 					  if (mas_proverka[3] == 0) {
 							
@@ -2642,7 +2642,7 @@ int main() {
 						  return 500;
 					  }
 				  }break;
-				  case 5: //äèâàéñû
+				  case 5: //Ã¤Ã¨Ã¢Ã Ã©Ã±Ã»
 				  {
 					  if (mas_proverka[4] == 0) {
 						  key = (char*)calloc(1, sizeof(char)); calloc_v5++;
